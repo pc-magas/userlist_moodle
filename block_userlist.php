@@ -1,4 +1,6 @@
 <?php
+defined('MOODLE_INTERNAL') || die();
+
 class block_userlist extends block_base {
     public function init() {
         $this->title = get_string('userlist', 'block_userlist');
@@ -7,14 +9,17 @@ class block_userlist extends block_base {
     // will only be closed after there is another function added in the next section.
 
     public function get_content() {
-        if ($this->content !== null) {
-          return $this->content;
-        }
-     
+        global $DB;
+
+        // if ($this->content !== null) {
+        //   return $this->content;
+        // }
+        
+        $user = $DB->get_record_sql('SELECT COUNT(*) as total_users FROM {user};');
+
         $this->content         =  new stdClass;
-        $this->content->text   = 'The content of our SimpleHTML block!';
-        $this->content->footer = 'Footer here...';
-     
+        $this->content->text   = 'The content of our <span style="color:\'red\'">SimpleHTML</span> block!';
+        $this->content->footer = "Τotal Users: $user->total_users";
         return $this->content;
     }
 }
