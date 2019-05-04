@@ -18,7 +18,9 @@ class block_userlist extends block_base {
         $user = $DB->get_record_sql('SELECT COUNT(*) as total_users FROM {user};');
 
         $this->content         =  new stdClass;
-        $this->content->text   = 'The content of our <span style="color:\'red\'">SimpleHTML</span> block!';
+        $this->content->text  .= 'The content of our ';
+        $this->content->text  .= html_writer::tag('span','UserList',['style'=>'color:red']);
+        $this->content->text  .= ' block!';
         $this->content->footer = "Τotal Users: $user->total_users";
         return $this->content;
     }
