@@ -22,7 +22,7 @@ class block_userlist extends block_base {
         // }
         
 
-        $query='SELECT username,login_time,logout_time,session_duration FROM {block_userlist} ORDER BY login_time DESC;';
+        $query='SELECT {block_userlist}.id,{user}.username,login_time,logout_time,session_duration FROM {user} JOIN {block_userlist} on {user}.id={block_userlist}.user_id ORDER BY login_time DESC;';
         $results = $DB->get_records_sql($query);
 
         $this->content =  new block_userlist_context();
