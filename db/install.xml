@@ -8,6 +8,7 @@
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
         <FIELD NAME="user_id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="username" TYPE="char" LENGTH="100" NOTNULL="true"/>
         <FIELD NAME="logout_time" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Time that a user logs out."/>
         <FIELD NAME="login_time" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time that a user has logged in"/>
         <FIELD NAME="session_duration" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="How long that a user has logged in"/>
